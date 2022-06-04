@@ -8,7 +8,7 @@ class Post extends Model
 {
     //
     protected $guarded = [];
-    protected $fillable = ['title', 'content', 'slug'];
+    // protected $fillable = ['title', 'content', 'slug'];
 
     public static function generateSlug($title)
     {

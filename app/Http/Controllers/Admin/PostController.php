@@ -19,7 +19,8 @@ class PostController extends Controller
     {
         //
         $posts = Post::all();
-        return view('admin.posts.index', compact('posts'));
+        $categories= Category::all();
+        return view('admin.posts.index', compact('posts', 'categories'));
     }
 
     /**
@@ -45,7 +46,8 @@ class PostController extends Controller
         //
         $request->validate([
             'title' => 'required|max:250',
-            'content' => 'required'
+            'content' => 'required',
+            'category_id' => 'required|exists:categories,id'
         ]);
 
         $postData = $request->all();
@@ -78,9 +80,10 @@ class PostController extends Controller
     {
         //
         $post = Post::find($id);
+        $categories = Category::all();
 
-        if($post){
-            return view('admin.posts.show', compact('post'));
+        if(!$post){
+            return view('admin.posts.show', compact('post', 'categories'));
         }
         abort(404);
     }
@@ -95,9 +98,10 @@ class PostController extends Controller
     {
         //
         $post = Post::find($id);
+        $categories = Category::all();
 
         if($post){
-            return view('admin.posts.edit', compact('post'));
+            return view('admin.posts.edit', compact('post', 'categories'));
         }
         abort(404);
     }
