@@ -2,8 +2,19 @@
 
 @section('content')
     <div class="container">
-        <h1>{{ $post->title }}</h1>
-        <p>{{ $post->content }}</p>
+        <h1> Visalizza post {{ $post->id }}</h1>
+        <dl>
+            <dt>Titolo:</dt>
+            <dd>{{ $post->title }}</dd>
+            <dt>Slug:</dt>
+            <dd>{{ $post->slug }}</dd>
+            <dt>Categoria:</dt>
+            <dd>{{ $post->category->name }}</dd>
+            <dt>Contenuto:</dt>
+            <dd>{{ $post->content }}</dd>
+        </dl>
+
+
 
         <div class="row">
             <a class="btn btn-info mr-2 ml-3" href="{{ route('admin.posts.edit', $post) }}">EDIT</a>
