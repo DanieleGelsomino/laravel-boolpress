@@ -22,15 +22,24 @@
                     <tr>
                         <th scope="row">{{ $post->id }}</th>
                         <td>{{ $post->title }}</td>
-                        <td><a class="btn btn-success" href="{{ route('admin.posts.show', $post) }}">SHOW</a></td>
-                        <td><a class="btn btn-info" href="{{ route('admin.posts.edit', $post) }}">EDIT</a></td>
                         <td>
-                            <form onsubmit="return confirm('Vuoi eliminare il post {{ $post->title }}?')"
-                                action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">DELETE</button>
-                            </form>
+                            <div class="d-flex">
+                                <a class="btn btn-success mr-2" href="{{ route('admin.posts.show', $post) }}">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                                <a class="btn btn-info mr-2" href="{{ route('admin.posts.edit', $post) }}">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <form onsubmit="return confirm('Vuoi eliminare il post {{ $post->title }}?')"
+                                    action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger"><i
+                                            class="fa-solid fa-trash-can"></i></button>
+                                </form>
+                            </div>
+
+
                         </td>
                     </tr>
                 @endforeach

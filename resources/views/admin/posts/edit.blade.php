@@ -55,9 +55,9 @@
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-success">EDIT</button>
-            <button type="reset" class="btn btn-secondary">RESET</button>
-            <a class="btn btn-dark" href="{{ route('admin.posts.index') }}">BACK</a>
+            <button type="submit" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button type="reset" class="btn btn-secondary"><i class="fa-solid fa-eraser"></i></button>
+            <a class="btn btn-dark" href="{{ route('admin.posts.index') }}"><i class="fa-solid fa-arrow-left"></i></a>
         </form>
 
     </div>
