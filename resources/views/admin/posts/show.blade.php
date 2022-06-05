@@ -17,8 +17,8 @@
 
 
         <div class="row">
-            <a class="btn btn-info mr-2 ml-3" href="{{ route('admin.posts.edit', $post) }}">
-                <i class="fa-solid fa-eraser"></i>
+            <a class="btn btn-secondary mr-2 ml-3" href="{{ route('admin.posts.edit', $post) }}">
+                <i class="fa-solid fa-pen-to-square"></i>
             </a>
             <form onsubmit="return confirm('Vuoi eliminare il post {{ $post->title }}?')"
                 action="{{ route('admin.posts.destroy', $post) }}" method="POST">

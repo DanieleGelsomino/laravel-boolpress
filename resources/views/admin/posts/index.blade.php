@@ -27,7 +27,7 @@
                                 <a class="btn btn-success mr-2" href="{{ route('admin.posts.show', $post) }}">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
-                                <a class="btn btn-info mr-2" href="{{ route('admin.posts.edit', $post) }}">
+                                <a class="btn btn-secondary mr-2" href="{{ route('admin.posts.edit', $post) }}">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
                                 <form onsubmit="return confirm('Vuoi eliminare il post {{ $post->title }}?')"
