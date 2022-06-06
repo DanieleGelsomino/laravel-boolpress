@@ -15,6 +15,8 @@
                     <th scope="col">ID</th>
                     <th scope="col">Categoria</th>
                     <th scope="col">Titolo</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">Tags</th>
                     <th scope="col" colspan="3">Azioni</th>
                 </tr>
             </thead>
@@ -24,6 +26,14 @@
                         <th scope="row">{{ $post->id }}</th>
                         <td>{{ $post->category->name }}</td>
                         <td>{{ $post->title }}</td>
+                        <td>{{ $post->slug }}</td>
+                        <td>
+                            @foreach ($post->tags as $tag)
+                                <span>
+                                    {{ $tag->name }}
+                                </span>
+                            @endforeach
+                        </td>
                         <td>
                             <div class="d-flex">
                                 <a class="btn btn-success mr-2" href="{{ route('admin.posts.show', $post) }}">
