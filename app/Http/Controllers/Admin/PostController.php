@@ -137,7 +137,7 @@ class PostController extends Controller
 
         // Add Sync
 
-        $post->tags()->sync($postData['tags']);
+        $post->tags()->sync($post['tags']);
 
         $post->update($data);
         return redirect()->route('admin.posts.show', $post->id);
