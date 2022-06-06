@@ -60,7 +60,9 @@
             </tbody>
         </table>
         <div>
-            <a class="btn btn-success" href="{{ route('admin.posts.create') }}">CREA POST</a>
+            <a class="btn btn-success" href="{{ route('admin.posts.create') }}"><i
+                    class="fa-solid fa-arrow-up-right-from-square"></i> Crea
+                post</a>
         </div>
     </div>
 @endsection
