@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     //
-    protected $guarded = [];
+    protected $table = 'posts';
+
+    protected $guarded = ['created_at'];
     // protected $fillable = ['title', 'content', 'slug'];
 
     public static function generateSlug($title)

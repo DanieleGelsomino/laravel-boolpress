@@ -45,10 +45,25 @@
             @enderror
             <div class="mb-3">
                 <label for="content" class="form-label">Contenuto</label>
-                <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content"
-                    rows="3">{{ old('content', $post->content) }}</textarea>
+                <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="3">{{ old('content', $post->content) }}</textarea>
 
                 @error('content')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <p>Tags:</p>
+                @foreach ($tags as $tag)
+                    <div class="ml-3">
+                        <input type="checkbox" value="{{ $tag->id }}" name="tags[]"
+                            class="form-check-input @error('tags') is-invalid @enderror "
+                            {{ $post->tags->contains($tag) ? 'checked' : '' }}>
+                        <div class="form-check-label">{{ $tag->name }}</div>
+                    </div>
+                @endforeach
+                @error('tags[]')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

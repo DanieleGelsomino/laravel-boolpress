@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Post;
 use App\Category;
+use App\Tag;
 
 class PostController extends Controller
 {
@@ -32,7 +33,8 @@ class PostController extends Controller
     {
         //
         $categories= Category::all();
-        return view('admin.posts.create', compact('categories'));
+        $tags= Tag::all();
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -43,11 +45,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
         $request->validate([
             'title' => 'required|max:250',
             'content' => 'required',
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id',
+            'tags' => 'exists:tags,id'
         ]);
 
         $postData = $request->all();
@@ -59,14 +62,20 @@ class PostController extends Controller
         $alternativeSlug = $slug;
 
         $postFound = Post::where('slug', $slug)->first();
+
         $counter = 1;
         while($postFound){
             $alternativeSlug = $slug . '_' . $counter;
-            $counter ++;
+            $counter++;
             $postFound = Post::where('slug', $alternativeSlug)->first();
         }
         $newPost->slug = $alternativeSlug;
         $newPost->save();
+
+         // add sync
+        $newPost->tags()->sync($postData['tags']);
+        $newPost->save();
+
         return redirect()->route('admin.posts.index');
     }
 
@@ -99,9 +108,10 @@ class PostController extends Controller
         //
         $post = Post::find($id);
         $categories = Category::all();
+        $tags= Tag::all();
 
         if($post){
-            return view('admin.posts.edit', compact('post', 'categories'));
+            return view('admin.posts.edit', compact('post', 'categories', 'tags'));
         }
         abort(404);
     }
@@ -118,10 +128,17 @@ class PostController extends Controller
         //
         $request->validate([
             'title'=> 'required|max:255',
-            'content'=> 'required'
+            'content'=> 'required',
+            'category_id' => 'required|exists:categories,id',
+            'tags'=>'exists:tags,id'
         ]);
         $post = Post::findOrFail($id);
         $data = $request->all();
+
+        // Add Sync
+
+        $post->tags()->sync($postData['tags']);
+
         $post->update($data);
         return redirect()->route('admin.posts.show', $post->id);
 
@@ -137,6 +154,7 @@ class PostController extends Controller
     {
         //
         $post = Post::findOrFail($id);
+        $post->tags()->sync([]);
         $post->delete();
         return redirect()->route('admin.posts.index');
     }
