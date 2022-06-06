@@ -13,6 +13,7 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col">Categoria</th>
                     <th scope="col">Titolo</th>
                     <th scope="col" colspan="3">Azioni</th>
                 </tr>
@@ -21,6 +22,7 @@
                 @foreach ($posts as $post)
                     <tr>
                         <th scope="row">{{ $post->id }}</th>
+                        <td>{{ $post->category->name }}</td>
                         <td>{{ $post->title }}</td>
                         <td>
                             <div class="d-flex">
