@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="container">
-        <h1>Edit post</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Modifica post</h1>
+            <a class="btn btn-dark h-100" href="{{ route('admin.posts.index') }}"><i class="fa-solid fa-arrow-left"></i>
+                Tutti i
+                post</a>
+        </div>
         @if ($errors->any())
             <div class="alert alert-danger" role="alert">
                 <ul>
@@ -70,9 +75,9 @@
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button type="reset" class="btn btn-secondary"><i class="fa-solid fa-eraser"></i></button>
-            <a class="btn btn-dark" href="{{ route('admin.posts.index') }}"><i class="fa-solid fa-arrow-left"></i></a>
+            <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Salva</button>
+            <button type="reset" class="btn btn-secondary"><i class="fa-solid fa-eraser"></i> Cancella</button>
+
         </form>
 
     </div>

@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="container">
-        <h1> Visalizza post {{ $post->id }}</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Visalizza post {{ $post->id }}</h1>
+            <a class="btn btn-dark h-100" href="{{ route('admin.posts.index') }}"><i class="fa-solid fa-arrow-left"></i>
+                Tutti i
+                post</a>
+        </div>
         <dl>
             <dt>Titolo:</dt>
             <dd>{{ $post->title }}</dd>
@@ -26,15 +31,15 @@
 
         <div class="row">
             <a class="btn btn-success mr-2 ml-3" href="{{ route('admin.posts.edit', $post) }}">
-                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-pen-to-square"></i> Modifica
             </a>
             <form onsubmit="return confirm('Vuoi eliminare il post {{ $post->title }}?')"
                 action="{{ route('admin.posts.destroy', $post) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger mr-2"><i class="fa-solid fa-trash-can"></i></button>
+                <button type="submit" class="btn btn-danger mr-2"><i class="fa-solid fa-trash-can"></i> Elimina</button>
             </form>
-            <a class="btn btn-dark" href="{{ route('admin.posts.index') }}"><i class="fa-solid fa-arrow-left"></i></a>
+
 
         </div>
     </div>
