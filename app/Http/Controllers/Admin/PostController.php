@@ -74,7 +74,7 @@ class PostController extends Controller
 
          // add sync
         $newPost->tags()->sync($postData['tags']);
-        $newPost->save();
+
 
         return redirect()->route('admin.posts.index');
     }

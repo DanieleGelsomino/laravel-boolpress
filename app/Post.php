@@ -9,7 +9,7 @@ class Post extends Model
     //
     protected $table = 'posts';
 
-    protected $guarded = ['created_at'];
+    protected $guarded = [''];
     // protected $fillable = ['title', 'content', 'slug'];
 
     public static function generateSlug($title)
