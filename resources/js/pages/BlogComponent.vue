@@ -1,9 +1,13 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">My Posts</div>
+    <div class="row flex-column">
+      <div class="col-12 text-center mb-3">My Posts</div>
       <div v-for="(post, index) in posts" :key="index">
-        <PostCardComponent :post="post" />
+        <ul class="list-group">
+          <li class="list-group-item">
+            <PostCardComponent :post="post" />
+          </li>
+        </ul>
       </div>
     </div>
   </div>

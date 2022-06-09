@@ -2013,6 +2013,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlogComponent",
@@ -37750,17 +37754,23 @@ var render = function () {
   return _c("div", { staticClass: "container" }, [
     _c(
       "div",
-      { staticClass: "row" },
+      { staticClass: "row flex-column" },
       [
-        _c("div", { staticClass: "col-12 text-center" }, [_vm._v("My Posts")]),
+        _c("div", { staticClass: "col-12 text-center mb-3" }, [
+          _vm._v("My Posts"),
+        ]),
         _vm._v(" "),
         _vm._l(_vm.posts, function (post, index) {
-          return _c(
-            "div",
-            { key: index },
-            [_c("PostCardComponent", { attrs: { post: post } })],
-            1
-          )
+          return _c("div", { key: index }, [
+            _c("ul", { staticClass: "list-group" }, [
+              _c(
+                "li",
+                { staticClass: "list-group-item" },
+                [_c("PostCardComponent", { attrs: { post: post } })],
+                1
+              ),
+            ]),
+          ])
         }),
       ],
       2
