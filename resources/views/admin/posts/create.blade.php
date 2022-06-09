@@ -20,7 +20,7 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.posts.store') }}" method="POST">
+        <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             {{-- title post --}}
             <div class="mb-3">
@@ -47,6 +47,11 @@
                     {{ $message }}
                 </div>
             @enderror
+            {{-- image --}}
+            <div class="form-group mt-3">
+                <label for="image">Seleziona immagine</label>
+                <input type="file" name="image">
+            </div>
             {{-- content post --}}
             <div class="mb-3">
                 <label for="content" class="form-label">Contenuto</label>

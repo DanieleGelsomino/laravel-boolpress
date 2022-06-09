@@ -20,10 +20,10 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.posts.update', $post) }}" method="POST">
+        <form action="{{ route('admin.posts.update', $post) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-
+            {{-- title post --}}
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
                 <input type="text" value="{{ old('title', $post->title) }}"
@@ -34,6 +34,7 @@
                     </div>
                 @enderror
             </div>
+            {{-- categories --}}
             <select class="mb-2 form-select @error('category_id') is-invalid @enderror" name="category_id">
                 <option selected>Seleziona una categoria</option>
                 @foreach ($categories as $category)
@@ -48,6 +49,12 @@
                     {{ $message }}
                 </div>
             @enderror
+            {{-- image --}}
+            <div class="form-group mt-3">
+                <label for="image">Seleziona immagine</label>
+                <input type="file" name="image">
+            </div>
+            {{-- content post --}}
             <div class="mb-3">
                 <label for="content" class="form-label">Contenuto</label>
                 <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="3">{{ old('content', $post->content) }}</textarea>

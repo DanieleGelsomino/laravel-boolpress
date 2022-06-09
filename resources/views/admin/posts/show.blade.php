@@ -11,6 +11,10 @@
         <dl>
             <dt>Titolo:</dt>
             <dd>{{ $post->title }}</dd>
+            <dt>Cover:</dt>
+            <dd>
+                <img class="cover-img" src="{{ asset('storage/' . $post->cover) }}" alt="" />
+            </dd>
             <dt>Slug:</dt>
             <dd>{{ $post->slug }}</dd>
             <dt>Categoria:</dt>
@@ -26,9 +30,6 @@
             <dt>Contenuto:</dt>
             <dd>{{ $post->content }}</dd>
         </dl>
-
-
-
         <div class="row">
             <a class="btn btn-success mr-2 ml-3" href="{{ route('admin.posts.edit', $post) }}">
                 <i class="fa-solid fa-pen-to-square"></i> Modifica
@@ -39,8 +40,6 @@
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger mr-2"><i class="fa-solid fa-trash-can"></i> Elimina</button>
             </form>
-
-
         </div>
     </div>
 @endsection
