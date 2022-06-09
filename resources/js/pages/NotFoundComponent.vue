@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-12 mt-5">
-        <h3>Home</h3>
+        <h3>404 | Not Found</h3>
+        <p>
+          <router-link :to="{ name: 'home' }">back to home</router-link>
+        </p>
       </div>
     </div>
   </div>
@@ -10,7 +13,7 @@
 
 <script>
 export default {
-  name: "HomeComponent",
+  name: "NotFoundComponent",
 };
 </script>
 
