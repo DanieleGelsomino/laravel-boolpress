@@ -2040,6 +2040,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlogComponent",
@@ -2050,8 +2059,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       posts: [],
       currentPage: 1,
-      previosPageLink: "",
-      nextPageLink: ""
+      prevPageLink: "",
+      nextPageLink: "",
+      lastPage: ""
     };
   },
   mounted: function mounted() {
@@ -2064,14 +2074,24 @@ __webpack_require__.r(__webpack_exports__);
       window.axios.get(url).then(function (_ref) {
         var status = _ref.status,
             data = _ref.data;
-        console.log(data.results);
 
+        //   console.log(data.results);
         if (status === 200 && data.success) {
-          _this.posts = data.results;
+          _this.posts = data.results.data;
+          _this.currentPage = data.results.current_page;
+          _this.prevPageLink = data.results.prev_page_url;
+          _this.nextPageLink = data.results.next_page_url;
+          _this.lastPage = data.results.last_page;
         }
       })["catch"](function (e) {
         console.log(e);
       });
+    },
+    goPrevPage: function goPrevPage() {
+      this.loadPage(this.prevPageLink);
+    },
+    goNextPage: function goNextPage() {
+      this.loadPage(this.nextPageLink);
     }
   }
 });
@@ -2207,9 +2227,8 @@ __webpack_require__.r(__webpack_exports__);
     window.axios.get("http://127.0.0.1:8000/api/posts/" + slug).then(function (results) {
       if (results.status === 200 && results.data.success) {
         _this.post = results.data.results;
-      }
+      } // console.log(this.post);
 
-      console.log(_this.post);
     })["catch"](function (e) {
       console.log(e);
     });
@@ -6622,7 +6641,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "li[data-v-8be6117c] {\n  padding: 50px;\n}\nbutton[data-v-8be6117c] {\n  font-size: 0.7rem;\n}", ""]);
+exports.push([module.i, "li[data-v-8be6117c] {\n  padding: 50px;\n}\nbutton[data-v-8be6117c] {\n  font-size: 0.7rem;\n}\nspan[data-v-8be6117c] {\n  font-size: 0.7rem;\n}", ""]);
 
 // exports
 
@@ -38664,7 +38683,41 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "mt-5" }, [
+        _vm.prevPageLink
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-light mr-2",
+                on: {
+                  click: function ($event) {
+                    return _vm.goPrevPage()
+                  },
+                },
+              },
+              [_vm._v("\n        Prev\n      ")]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("span", [
+          _vm._v(_vm._s(_vm.currentPage) + "/" + _vm._s(_vm.lastPage)),
+        ]),
+        _vm._v(" "),
+        _vm.nextPageLink
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-light",
+                on: {
+                  click: function ($event) {
+                    return _vm.goNextPage()
+                  },
+                },
+              },
+              [_vm._v("\n        Next\n      ")]
+            )
+          : _vm._e(),
+      ]),
     ]),
   ])
 }
@@ -38675,16 +38728,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 text-center mt-5 mb-3" }, [
       _c("h3", [_vm._v("I Miei Post")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-5" }, [
-      _c("button", { staticClass: "btn btn-light mr-2" }, [_vm._v("Prev")]),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-light" }, [_vm._v("Next")]),
     ])
   },
 ]

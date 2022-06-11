@@ -15,8 +15,17 @@
         </ul>
       </div>
       <div class="mt-5">
-        <button class="btn btn-light mr-2">Prev</button>
-        <button class="btn btn-light">Next</button>
+        <button
+          v-if="prevPageLink"
+          @click="goPrevPage()"
+          class="btn btn-light mr-2"
+        >
+          Prev
+        </button>
+        <span>{{ currentPage }}/{{ lastPage }}</span>
+        <button v-if="nextPageLink" @click="goNextPage()" class="btn btn-light">
+          Next
+        </button>
       </div>
     </div>
   </div>
@@ -33,8 +42,9 @@ export default {
     return {
       posts: [],
       currentPage: 1,
-      previosPageLink: "",
+      prevPageLink: "",
       nextPageLink: "",
+      lastPage: "",
     };
   },
   mounted() {
@@ -45,14 +55,24 @@ export default {
       window.axios
         .get(url)
         .then(({ status, data }) => {
-          console.log(data.results);
+          //   console.log(data.results);
           if (status === 200 && data.success) {
-            this.posts = data.results;
+            this.posts = data.results.data;
+            this.currentPage = data.results.current_page;
+            this.prevPageLink = data.results.prev_page_url;
+            this.nextPageLink = data.results.next_page_url;
+            this.lastPage = data.results.last_page;
           }
         })
         .catch((e) => {
           console.log(e);
         });
+    },
+    goPrevPage() {
+      this.loadPage(this.prevPageLink);
+    },
+    goNextPage() {
+      this.loadPage(this.nextPageLink);
     },
   },
 };
@@ -63,6 +83,9 @@ li {
   padding: 50px;
 }
 button {
+  font-size: 0.7rem;
+}
+span {
   font-size: 0.7rem;
 }
 </style>

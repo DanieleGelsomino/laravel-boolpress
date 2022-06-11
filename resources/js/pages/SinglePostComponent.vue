@@ -42,7 +42,7 @@ export default {
         if (results.status === 200 && results.data.success) {
           this.post = results.data.results;
         }
-        console.log(this.post);
+        // console.log(this.post);
       })
       .catch((e) => {
         console.log(e);
