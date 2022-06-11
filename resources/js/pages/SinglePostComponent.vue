@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div v-if="post">
         <div class="col-12 pt-5">
-          <h2 class="text-center">{{ post.title }}</h2>
+          <h2 class="text-center mb-5">{{ post.title }}</h2>
           <img
             class="detail-img"
             :src="'/storage/' + post.cover"

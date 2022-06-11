@@ -14,6 +14,10 @@
           <div v-else>Caricamento in corso...</div>
         </ul>
       </div>
+      <div class="mt-5">
+        <button class="btn btn-light mr-2">Prev</button>
+        <button class="btn btn-light">Next</button>
+      </div>
     </div>
   </div>
 </template>
@@ -28,6 +32,9 @@ export default {
   data() {
     return {
       posts: [],
+      currentPage: 1,
+      previosPageLink: "",
+      nextPageLink: "",
     };
   },
   mounted() {
@@ -51,5 +58,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+li {
+  padding: 50px;
+}
+button {
+  font-size: 0.7rem;
+}
 </style>

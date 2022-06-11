@@ -1,13 +1,13 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg p-3">
       <ul class="navbar-nav">
         <li
           v-for="(menuItem, index) in menu"
           :key="index"
           class="nav-item mr-3"
         >
-          <router-link :to="{ name: menuItem.linkName }">{{
+          <router-link :to="{ name: menuItem.linkName }" class="text-primary">{{
             menuItem.label
           }}</router-link>
         </li>
