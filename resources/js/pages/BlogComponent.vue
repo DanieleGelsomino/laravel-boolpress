@@ -6,9 +6,11 @@
       </div>
       <div>
         <ul class="list-group">
-          <li v-if="posts.length > 0" class="list-group-item">
-            <PostCardComponent :posts="posts" />
-          </li>
+          <div v-if="posts.length > 0">
+            <li class="list-group-item">
+              <PostCardComponent :posts="posts" />
+            </li>
+          </div>
           <div v-else>Caricamento in corso...</div>
         </ul>
       </div>
@@ -29,18 +31,22 @@ export default {
     };
   },
   mounted() {
-    window.axios = require("axios");
-    window.axios
-      .get("http://127.0.0.1:8000/api/posts")
-      .then(({ status, data }) => {
-        console.log(data);
-        if (status === 200 && data.success) {
-          this.posts = data.result;
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    this.loadPage("http://127.0.0.1:8000/api/posts");
+  },
+  methods: {
+    loadPage(url) {
+      window.axios
+        .get(url)
+        .then(({ status, data }) => {
+          console.log(data.results);
+          if (status === 200 && data.success) {
+            this.posts = data.results;
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
   },
 };
 </script>
