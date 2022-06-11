@@ -23,9 +23,9 @@ export default {
     return {
       menu: [
         { linkName: "home", label: "Home" },
-        { linkName: "blog", label: "My Posts" },
-        { linkName: "contacts", label: "Contacts" },
-        { linkName: "who-we-are", label: "Who we are" },
+        { linkName: "blog", label: "I miei post" },
+        { linkName: "contatti", label: "Contatti" },
+        { linkName: "chi-siamo", label: "Chi siamo" },
       ],
     };
   },

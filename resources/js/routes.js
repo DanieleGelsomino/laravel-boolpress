@@ -8,6 +8,7 @@ import BlogComponent from "./pages/BlogComponent";
 import ContactsComponent from "./pages/ContactsComponent";
 import WhoWeAreComponent from "./pages/WhoWeAreComponent";
 import NotFoundComponent from "./pages/NotFoundComponent";
+import SinglePostComponent from "./pages/SinglePostComponent";
 const router = new VueRouter({
     mode: "history",
     routes: [
@@ -22,13 +23,18 @@ const router = new VueRouter({
             component: BlogComponent,
         },
         {
-            path: "/contacts",
-            name: "contacts",
+            path: "/blog/:slug",
+            name: "single-post",
+            component: SinglePostComponent,
+        },
+        {
+            path: "/contatti",
+            name: "contatti",
             component: ContactsComponent,
         },
         {
-            path: "/who-we-are",
-            name: "who-we-are",
+            path: "/chi-siamo",
+            name: "chi-siamo",
             component: WhoWeAreComponent,
         },
         {

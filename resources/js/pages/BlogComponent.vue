@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row flex-column">
       <div class="col-12 text-center mt-5 mb-3">
-        <h3>My Posts</h3>
+        <h3>I Miei Post</h3>
       </div>
-      <div v-for="(post, index) in posts" :key="index">
+      <div>
         <ul class="list-group">
           <li v-if="posts.length > 0" class="list-group-item">
-            <PostCardComponent :post="post" />
+            <PostCardComponent :posts="posts" />
           </li>
           <div v-else>Caricamento in corso...</div>
         </ul>

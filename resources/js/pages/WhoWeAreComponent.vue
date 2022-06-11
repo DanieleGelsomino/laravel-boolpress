@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-12 mt-5">
-        <h3>Who we are</h3>
+        <h3>Chi siamo ?</h3>
       </div>
     </div>
   </div>
