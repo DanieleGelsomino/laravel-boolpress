@@ -2049,6 +2049,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlogComponent",
@@ -6660,7 +6664,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "h5[data-v-253b705c] {\n  font-size: 1rem;\n}\n.detail-img[data-v-253b705c] {\n  width: 500px;\n}\n.list-style-dg[data-v-253b705c] {\n  list-style-type: none;\n}", ""]);
+exports.push([module.i, "h5[data-v-253b705c] {\n  font-size: 1rem;\n}\n.detail-img[data-v-253b705c] {\n  width: 100%;\n}\n.list-style-dg[data-v-253b705c] {\n  list-style-type: none;\n}", ""]);
 
 // exports
 
@@ -38707,7 +38711,7 @@ var render = function () {
           ? _c(
               "button",
               {
-                staticClass: "btn btn-light",
+                staticClass: "btn btn-light ml-2",
                 on: {
                   click: function ($event) {
                     return _vm.goNextPage()
@@ -38798,7 +38802,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row text-center" }, [
-        _c("div", { staticClass: "col-12 mt-5" }, [_c("h3", [_vm._v("Home")])]),
+        _c("div", { staticClass: "col-12 mt-5" }, [
+          _c("h2", { staticClass: "text-uppercase" }, [
+            _vm._v("Benvenuto in Boolpress!"),
+          ]),
+        ]),
       ]),
     ])
   },

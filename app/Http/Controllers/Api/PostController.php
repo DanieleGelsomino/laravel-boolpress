@@ -19,7 +19,7 @@ class PostController extends Controller
         // $posts = Post::all();
 
         // per restituire un tot di risulati per pagina
-        $posts = Post::with('category')->paginate(3);// <- numero di post per pagina
+        $posts = Post::with('category')->paginate(2);// <- numero di post per pagina
         $result = ['results'=>$posts, 'success'=>true];
         return response()->json($result);
     }

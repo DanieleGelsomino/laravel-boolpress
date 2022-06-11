@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-12 mt-5">
-        <h3>Home</h3>
+        <h2 class="text-uppercase">Benvenuto in Boolpress!</h2>
       </div>
     </div>
   </div>

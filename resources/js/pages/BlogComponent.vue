@@ -23,7 +23,11 @@
           Prev
         </button>
         <span>{{ currentPage }}/{{ lastPage }}</span>
-        <button v-if="nextPageLink" @click="goNextPage()" class="btn btn-light">
+        <button
+          v-if="nextPageLink"
+          @click="goNextPage()"
+          class="btn btn-light ml-2"
+        >
           Next
         </button>
       </div>

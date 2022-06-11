@@ -56,7 +56,7 @@ h5 {
   font-size: 1rem;
 }
 .detail-img {
-  width: 500px;
+  width: 100%;
 }
 
 .list-style-dg {
