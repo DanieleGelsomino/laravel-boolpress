@@ -87,5 +87,6 @@ button {
 }
 span {
   font-size: 0.7rem;
+  margin: 0 5px;
 }
 </style>

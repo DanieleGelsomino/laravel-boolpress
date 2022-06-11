@@ -6641,7 +6641,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "li[data-v-8be6117c] {\n  padding: 50px;\n}\nbutton[data-v-8be6117c] {\n  font-size: 0.7rem;\n}\nspan[data-v-8be6117c] {\n  font-size: 0.7rem;\n}", ""]);
+exports.push([module.i, "li[data-v-8be6117c] {\n  padding: 50px;\n}\nbutton[data-v-8be6117c] {\n  font-size: 0.7rem;\n}\nspan[data-v-8be6117c] {\n  font-size: 0.7rem;\n  margin: 0 5px;\n}", ""]);
 
 // exports
 

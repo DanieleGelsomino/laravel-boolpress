@@ -55,14 +55,16 @@ class PostController extends Controller
         ]);
 
         $postData = $request->all();
+
+            // img path
+         if(array_key_exists('image', $postData)){
+             $img_path= Storage::put('uploads', $postData['image']);
+             $postData['cover']= $img_path;
+         }
         $newPost = new Post();
         $newPost->fill($postData);
 
-         // img path
-         if(array_key_exists('image', $postData)){
-        $img_path= Storage::put('uploads', $postData['image']);
-        $postData['cover']= $img_path;
-        }
+
 
         // add slug
         $slug=Str::slug($newPost->title);
