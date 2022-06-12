@@ -9,6 +9,7 @@ import ContactsComponent from "./pages/ContactsComponent";
 import WhoWeAreComponent from "./pages/WhoWeAreComponent";
 import NotFoundComponent from "./pages/NotFoundComponent";
 import SinglePostComponent from "./pages/SinglePostComponent";
+import CategoriesComponent from "./pages/CategoriesComponent";
 const router = new VueRouter({
     mode: "history",
     routes: [
@@ -26,6 +27,11 @@ const router = new VueRouter({
             path: "/blog/:slug",
             name: "single-post",
             component: SinglePostComponent,
+        },
+        {
+            path: "/categorie",
+            name: "categorie",
+            component: CategoriesComponent,
         },
         {
             path: "/contatti",

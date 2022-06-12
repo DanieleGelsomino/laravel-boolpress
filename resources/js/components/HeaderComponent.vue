@@ -24,6 +24,7 @@ export default {
       menu: [
         { linkName: "home", label: "Home" },
         { linkName: "blog", label: "I miei post" },
+        { linkName: "categorie", label: "Categorie" },
         { linkName: "contatti", label: "Contatti" },
         { linkName: "chi-siamo", label: "Chi siamo" },
       ],

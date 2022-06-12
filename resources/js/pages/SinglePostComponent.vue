@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row flex-comlumn align-items-center justify-content-center">
       <div v-if="post">
         <div class="col-12 pt-5">
           <h2 class="text-center mb-5">{{ post.title }}</h2>
@@ -19,6 +19,9 @@
               {{ tag.name }}
             </li>
           </ul>
+          <div>
+            <router-link :to="{ name: 'blog' }">Tutti i post</router-link>
+          </div>
         </div>
       </div>
       <div v-else>Caricamento in corso...</div>
