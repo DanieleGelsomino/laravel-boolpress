@@ -2143,6 +2143,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ContactsComponent"
 });
@@ -38815,7 +38839,57 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row text-center" }, [
         _c("div", { staticClass: "col-12 mt-5" }, [
-          _c("h3", [_vm._v("Contatti")]),
+          _c("h3", [_vm._v("Contattaci")]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row justify-content-center mt-5" }, [
+        _c("div", { staticClass: "col-5" }, [
+          _c("form", { attrs: { method: "post" } }, [
+            _c("div", { staticClass: "mb-3" }, [
+              _c(
+                "label",
+                { staticClass: "form-label", attrs: { for: "emailInput" } },
+                [_vm._v("Email")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "email", id: "emailInput" },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-text" }, [
+                _vm._v(
+                  "\n            Non condivideremo la tua mail con nessuno.\n          "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-floating" }, [
+              _c("label", { attrs: { for: "floatingTextarea" } }, [
+                _vm._v("Messaggio"),
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass: "form-control",
+                attrs: {
+                  placeholder: "Scrivi un messaggio",
+                  id: "floatingTextarea",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-3" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary mb-3",
+                  attrs: { type: "submit" },
+                },
+                [_vm._v("Invia")]
+              ),
+            ]),
+          ]),
         ]),
       ]),
     ])
