@@ -2167,6 +2167,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ContactsComponent"
 });
@@ -38855,7 +38865,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("input", {
                 staticClass: "form-control",
-                attrs: { type: "email", id: "emailInput" },
+                attrs: { type: "email", name: "from", id: "emailInput" },
               }),
               _vm._v(" "),
               _c("div", { staticClass: "form-text" }, [
@@ -38863,6 +38873,15 @@ var staticRenderFns = [
                   "\n            Non condivideremo la tua mail con nessuno.\n          "
                 ),
               ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-3" }, [
+              _c("label", { attrs: { for: "name" } }, [_vm._v("Nome")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", name: "name" },
+              }),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-floating" }, [
@@ -38873,6 +38892,7 @@ var staticRenderFns = [
               _c("textarea", {
                 staticClass: "form-control",
                 attrs: {
+                  name: "message",
                   placeholder: "Scrivi un messaggio",
                   id: "floatingTextarea",
                 },

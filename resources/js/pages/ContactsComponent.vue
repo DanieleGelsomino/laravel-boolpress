@@ -10,15 +10,25 @@
         <form method="post">
           <div class="mb-3">
             <label for="emailInput" class="form-label">Email</label>
-            <input type="email" class="form-control" id="emailInput" />
+            <input
+              type="email"
+              name="from"
+              class="form-control"
+              id="emailInput"
+            />
             <div class="form-text">
               Non condivideremo la tua mail con nessuno.
             </div>
+          </div>
+          <div class="mb-3">
+            <label for="name">Nome</label>
+            <input type="text" name="name" class="form-control" />
           </div>
           <div class="form-floating">
             <label for="floatingTextarea">Messaggio</label>
             <textarea
               class="form-control"
+              name="message"
               placeholder="Scrivi un messaggio"
               id="floatingTextarea"
             ></textarea>
